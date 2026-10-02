@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="img/logo.jpg">
+<meta property="og:title" content="Importaciones Loayza — Repuestos para celulares">
+<meta property="og:image" content="img/tienda.jpg">
+<title>Importaciones Loayza</title>
+<meta name="description" content="Importaciones Loayza — importadores directos de repuestos para celulares en Lima. Pantallas, tapas, baterías, flex y zócalos al por mayor y menor. Av. Argentina 428, Tda. D3-D4.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0a1220; --navy-2:#111d33; --ink:#141b27; --muted:#5a6475;
+    --bg:#f4f6fa; --card:#ffffff; --line:#e2e7ef;
+    --accent:#1ec8e8; --accent-2:#3b82f6; --accent-ink:#04202a; --wa:#1fa855;
+    --radius:16px; --max:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Outfit,sans-serif;line-height:1.1;letter-spacing:-.02em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .15s,background .15s;border:0;cursor:pointer}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-accent{background:var(--accent);color:var(--accent-ink);box-shadow:0 8px 28px -8px rgba(30,200,232,.6)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.3);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+  .btn-wa{background:var(--wa);color:#fff}
+  .eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2)}
+  .dark .eyebrow,.hero .eyebrow{color:var(--accent)}
+  section{padding:96px 0}
+  .sec-head{max-width:640px;margin-bottom:48px}
+  .sec-head h2{font-size:clamp(30px,4vw,44px);margin:10px 0 14px}
+  .sec-head p{color:var(--muted);font-size:17px}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(10,18,32,.92);backdrop-filter:blur(10px);color:#fff;border-bottom:1px solid rgba(255,255,255,.06)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:12px;font-family:Outfit;font-weight:700;font-size:19px}
+  .logo-mark img{width:100%;height:100%;object-fit:contain;display:block}
+  .logo-mark:has(img){background:#fff;padding:2px;overflow:hidden}
+  .logo-mark{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px}
+  .logo small{display:block;font-family:Inter;font-weight:500;font-size:11px;letter-spacing:.12em;opacity:.6;text-transform:uppercase}
+  .nav ul{display:flex;gap:30px;list-style:none;font-size:14px;font-weight:500}
+  .nav ul a{opacity:.8}.nav ul a:hover{opacity:1;color:var(--accent)}
+  .nav .btn{padding:10px 18px;font-size:14px}
+  .menu-btn{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+
+  /* Hero */
+  .hero{background:radial-gradient(900px 500px at 80% 0%,rgba(30,200,232,.18),transparent 60%),radial-gradient(700px 400px at 100% 100%,rgba(59,130,246,.18),transparent 60%),linear-gradient(160deg,var(--navy),var(--navy-2));color:#fff;padding:90px 0 120px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+  .hero h1{font-size:clamp(38px,5.6vw,64px);margin:16px 0 22px}
+  .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:18px;color:rgba(255,255,255,.72);max-width:540px;margin-bottom:34px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+  .chip{font-size:13px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85)}
+
+  .hero-visual{position:relative;height:460px;display:grid;place-items:center}
+  .phone{width:230px;height:450px;border-radius:38px;background:#05080f;padding:10px;box-shadow:0 40px 80px -20px rgba(0,0,0,.7),0 0 0 2px #2a3550 inset;transform:rotate(-8deg)}
+  .screen{width:100%;height:100%;border-radius:30px;background:linear-gradient(160deg,#1ec8e8 0%,#3b82f6 45%,#6d28d9 100%);position:relative;overflow:hidden}
+  .screen::before{content:"";position:absolute;top:12px;left:50%;width:12px;height:12px;border-radius:50%;background:#05080f;transform:translateX(-50%)}
+  .screen::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.22) 50%,transparent 60%)}
+  .storefront{height:92%;width:auto;max-width:100%;object-fit:cover;border-radius:24px;box-shadow:0 40px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.15);transform:rotate(-3deg)}
+  .part{position:absolute;background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px;font-size:13px;font-weight:600;box-shadow:0 16px 40px -12px rgba(0,0,0,.5);display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .part i{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:#e6f8fc;font-style:normal}
+  .p1{left:0;top:34%}.p2{right:0;top:52%}.p3{left:6%;bottom:8%}
+
+  /* Benefits */
+  .benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:-64px;position:relative;z-index:2}
+  .benefit{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:0 20px 40px -24px rgba(10,18,32,.3)}
+  .ico{width:46px;height:46px;border-radius:12px;background:#e6f8fc;display:grid;place-items:center;margin-bottom:16px;flex:none}
+  .ico svg{width:24px;height:24px;stroke:#0e8fb0}
+  .benefit h3{font-size:18px;margin-bottom:6px}
+  .benefit p{font-size:14.5px;color:var(--muted)}
+
+  /* Products */
+  .cats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .cat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;transition:transform .2s,border-color .2s,box-shadow .2s;display:flex;flex-direction:column}
+  .cat:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 20px 40px -24px rgba(30,200,232,.5)}
+  .cat .art{height:96px;display:grid;place-items:center;margin-bottom:18px;border-radius:12px;background:linear-gradient(160deg,#eef6ff,#e6f8fc)}
+  .cat .art svg{width:56px;height:56px;stroke:#1d4ed8;fill:none;stroke-width:1.6}
+  .cat h3{font-size:19px;margin-bottom:6px}
+  .cat p{font-size:14px;color:var(--muted);flex:1}
+  .cat span{margin-top:14px;font-size:13.5px;font-weight:600;color:var(--accent-2)}
+
+  /* Featured */
+  .featured{background:var(--navy);color:#fff}
+  .feat{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .feat h2{font-size:clamp(30px,4vw,46px);margin:12px 0 16px}
+  .feat p{color:rgba(255,255,255,.7);margin-bottom:26px;font-size:17px}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#7ef0a6}
+  .badge::before{content:"";width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 4px rgba(61,220,132,.2)}
+  .models{display:grid;gap:14px}
+  .model{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);transition:border-color .2s,background .2s}
+  .model:hover{border-color:var(--accent);background:rgba(30,200,232,.06)}
+  .model b{font-family:Outfit;font-size:20px;font-weight:600}
+  .model small{display:block;color:rgba(255,255,255,.55);font-size:13px}
+  .model .go{font-size:13.5px;font-weight:600;color:var(--accent)}
+
+  /* Audience */
+  .aud{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .acard{border-radius:var(--radius);padding:34px;background:var(--card);border:1px solid var(--line)}
+  .acard.hl{background:linear-gradient(160deg,var(--accent-2),#1d4ed8);color:#fff;border:0}
+  .acard.hl p,.acard.hl li{color:rgba(255,255,255,.85)}
+  .acard h3{font-size:24px;margin:6px 0 10px}
+  .acard p{color:var(--muted);font-size:15px;margin-bottom:18px}
+  .acard .tag{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+  .checks{list-style:none;display:grid;gap:10px}
+  .checks li{display:flex;gap:10px;font-size:14.5px}
+  .checks li::before{content:"✓";color:var(--wa);font-weight:700}
+  .acard.hl .checks li::before{color:#a7f3d0}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+  .step{border:1px solid var(--line);border-radius:var(--radius);padding:28px;background:var(--card)}
+  .step::before{counter-increment:s;content:"0" counter(s);font-family:Outfit;font-weight:800;font-size:38px;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin-bottom:12px}
+  .step h3{font-size:19px;margin-bottom:8px}
+  .step p{font-size:14.5px;color:var(--muted)}
+
+  /* FAQ */
+  .faq{max-width:820px}
+  details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin-bottom:12px}
+  summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:22px;color:var(--accent-2);line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--muted);margin-top:12px;font-size:15px}
+
+  /* Contact */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .ccard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+  .ccard h3{font-size:24px;margin-bottom:18px}
+  .crow{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+  .crow:first-of-type{border-top:0}
+  .crow .ico{margin:0;width:42px;height:42px}
+  .crow small{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+  .crow b{font-weight:600}
+  .crow a b{color:var(--accent-2)}
+  .map{border-radius:12px;overflow:hidden;margin-top:18px;border:1px solid var(--line)}
+  .map iframe{width:100%;height:230px;border:0;display:block}
+  .cta-card{background:linear-gradient(160deg,var(--navy),var(--navy-2));color:#fff;border:0;display:flex;flex-direction:column;justify-content:center}
+  .cta-card h3{font-size:34px;margin:10px 0 14px}
+  .cta-card p{color:rgba(255,255,255,.7);margin-bottom:26px}
+  .cta-card .phone-big{font-family:Outfit;font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:26px;color:var(--accent)}
+  .cta-card .btns{display:flex;gap:12px;flex-wrap:wrap}
+
+  footer{background:#060b14;color:rgba(255,255,255,.55);padding:36px 0;font-size:14px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  footer .logo{color:#fff}
+
+  .wa-float{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(31,168,85,.7);z-index:60;transition:transform .2s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+  @media (max-width:1060px){
+    .cats{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (max-width:980px){
+    .hero-grid,.feat,.contact{grid-template-columns:1fr}
+    .hero-visual{height:420px}
+    .benefits,.steps{grid-template-columns:repeat(2,1fr)}
+    .aud{grid-template-columns:1fr}
+  }
+  @media (max-width:760px){
+    .nav ul,.nav .btn-accent{display:none}
+    .menu-btn{display:block}
+    .nav ul.open{display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:var(--navy);padding:20px;gap:18px}
+    section{padding:72px 0}
+    .wrap{padding:0 16px}
+    .benefits,.steps{grid-template-columns:1fr}
+    .cats{grid-template-columns:repeat(2,1fr)}
+    .hero-visual{height:380px}
+    .phone{width:180px;height:360px}
+    .part{font-size:12px;padding:10px 12px}
+  }
+  @media (max-width:440px){.cats{grid-template-columns:1fr}}
+
+  /* ===== Tienda ===== */
+  .shop-bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+  .search{flex:1;min-width:220px;position:relative}
+  .search input{width:100%;padding:14px 16px 14px 44px;border-radius:12px;border:1px solid var(--line);font:inherit;background:var(--card)}
+  .search input:focus,.shop-bar select:focus,.ck input:focus,.ck select:focus,.ck textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+  .search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted)}
+  .shop-bar select{padding:14px;border-radius:12px;border:1px solid var(--line);font:inherit;background:var(--card);min-width:160px}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+  .tabs button{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);font:inherit;font-size:14px;font-weight:500;cursor:pointer;color:var(--ink)}
+  .tabs button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .prod{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+  .prod:hover{transform:translateY(-3px);box-shadow:0 20px 40px -24px rgba(10,18,32,.35)}
+  .prod .ph{aspect-ratio:4/3;background:linear-gradient(160deg,#eef6ff,#e6f8fc);display:grid;place-items:center;position:relative}
+  .prod .ph:has(img){background:#fff}
+  .prod .ph img{width:100%;height:100%;object-fit:contain}
+  .prod .ph svg{width:64px;height:64px;stroke:#1d4ed8;fill:none;stroke-width:1.6}
+  .st{position:absolute;top:12px;left:12px;font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:#fff;color:var(--muted)}
+  .st.ok{background:#e7f9ee;color:#137a3a}
+  .prod .bd{padding:18px;display:flex;flex-direction:column;flex:1}
+  .prod .br{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-2)}
+  .prod h3{font-size:18px;margin:4px 0 2px}
+  .prod .dt{font-size:14px;color:var(--muted)}
+  .prod .pr{margin:14px 0;font-family:Outfit;font-weight:700;font-size:20px}
+  .prod .pr small{display:block;font-family:Inter;font-weight:500;font-size:12.5px;color:var(--muted)}
+  .prod .pr.q{font-size:15px;color:var(--muted);font-family:Inter;font-weight:600}
+  .add{margin-top:auto;width:100%;justify-content:center;background:var(--navy);color:#fff;padding:12px}
+  .add.done{background:var(--wa)}
+  .empty{grid-column:1/-1;text-align:center;padding:50px 20px;color:var(--muted);background:var(--card);border:1px dashed var(--line);border-radius:var(--radius)}
+  .empty a{color:var(--accent-2);font-weight:600}
+
+  .nav-r{display:flex;gap:12px;align-items:center}
+  .cart-btn{position:relative;background:none;border:1.5px solid rgba(255,255,255,.25);color:#fff;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;cursor:pointer}
+  .cart-btn svg{width:22px;height:22px;stroke:#fff}
+  .cart-btn b{position:absolute;top:-7px;right:-7px;min-width:21px;height:21px;padding:0 5px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-size:12px;display:grid;place-items:center}
+  .cart-btn b:empty{display:none}
+
+  .scrim{position:fixed;inset:0;background:rgba(5,10,20,.5);opacity:0;pointer-events:none;transition:opacity .25s;z-index:80}
+  .drawer{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:var(--bg);z-index:90;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}
+  body.cart-open .scrim{opacity:1;pointer-events:auto}
+  body.cart-open .drawer{transform:none}
+  .dh{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line);background:var(--card)}
+  .dh h3{font-size:22px}
+  .x{background:none;border:0;font-size:28px;cursor:pointer;color:var(--muted);line-height:1}
+  .db{flex:1;overflow:auto;padding:18px 22px}
+  .line{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+  .line .li{flex:1;min-width:0}
+  .line b{display:block;font-size:15px}
+  .line small{color:var(--muted);font-size:13px}
+  .qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px}
+  .qty button{width:32px;height:32px;border:0;background:none;font-size:18px;cursor:pointer;color:var(--ink)}
+  .qty span{min-width:26px;text-align:center;font-weight:600}
+  .rm{background:none;border:0;color:var(--muted);cursor:pointer;font-size:13px;text-decoration:underline}
+  .ck{display:grid;gap:12px;margin-top:18px}
+  .ck label{font-size:13px;font-weight:600;display:grid;gap:6px}
+  .ck input,.ck select,.ck textarea{padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--card);font-weight:400}
+  .ck .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .df{padding:18px 22px;border-top:1px solid var(--line);background:var(--card)}
+  .tot{display:flex;justify-content:space-between;font-weight:600;margin-bottom:12px}
+  .df .btn{width:100%;justify-content:center}
+  .df p{font-size:12.5px;color:var(--muted);margin-top:10px;text-align:center}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,140px);background:var(--navy);color:#fff;padding:12px 20px;border-radius:12px;font-size:14px;z-index:95;transition:transform .3s}
+  .toast.show{transform:translate(-50%,0)}
+  @media (max-width:1060px){.grid{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.prod .bd{padding:14px}.prod h3{font-size:16px}}
+  @media (max-width:440px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#inicio" class="logo"><span class="logo-mark"><img src="img/logo.jpg" alt=""></span><span>Importaciones Loayza<small>Repuestos para celulares</small></span></a>
+    <ul id="menu">
+      <li><a href="#tienda">Tienda</a></li>
+      <li><a href="#productos">Categorías</a></li>
+      <li><a href="#stock">Stock</a></li>
+      <li><a href="#mayoristas">Por mayor</a></li>
+      <li><a href="#preguntas">Preguntas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-r">
+      <a class="btn btn-accent" href="#tienda">Ver tienda</a>
+      <button class="cart-btn" aria-label="Abrir carrito" onclick="openCart()"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg><b id="count"></b></button>
+      <button class="menu-btn" aria-label="Abrir menú" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Importadores directos · Lima</span>
+      <h1>Repuestos para celulares de <em>alta calidad</em>, al precio del importador.</h1>
+      <p class="lead">Pantallas, tapas, baterías, flex y zócalos para técnicos, distribuidores y clientes finales. Precios por mayor y menor, con tienda en Av. Argentina y delivery.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-accent" href="https://wa.me/51957864902?text=Hola%2C%20quiero%20consultar%20stock%20y%20precios" target="_blank" rel="noopener">Consultar stock por WhatsApp →</a>
+        <a class="btn btn-ghost" href="#tienda">Ver catálogo</a>
+      </div>
+      <div class="chips">
+        <span class="chip">📱 Pantallas</span><span class="chip">🔋 Baterías</span><span class="chip">🧩 Tapas</span><span class="chip">🔌 Flex</span><span class="chip">⚡ Zócalos de carga</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img class="storefront" src="img/tienda.jpg" alt="Tienda Importaciones Loayza en Av. Argentina 428, Lima" width="1000" height="1121">
+      <div class="part p1"><i>📱</i>Pantallas Samsung Ultra</div>
+      <div class="part p2"><i>🔋</i>Baterías</div>
+      <div class="part p3"><i>🚚</i>Delivery disponible</div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="benefits">
+    <div class="benefit reveal">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M3 7l9 5 9-5M12 12v10"/></svg></div>
+      <h3>Importación directa</h3><p>Sin intermediarios: mejores precios para tu taller o tu negocio.</p>
+    </div>
+    <div class="benefit reveal">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h3>Alta calidad</h3><p>Repuestos seleccionados para un acabado y funcionamiento confiables.</p>
+    </div>
+    <div class="benefit reveal">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg></div>
+      <h3>Por mayor y menor</h3><p>Desde una unidad hasta pedidos para distribuidores.</p>
+    </div>
+    <div class="benefit reveal">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 10h4l3 3v4h-7"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>
+      <h3>Tienda y delivery</h3><p>Compra en tienda en Av. Argentina o recíbelo con delivery.</p>
+    </div>
+  </div>
+</div>
+
+<section id="productos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Nuestros productos</span>
+      <h2>Todo lo que tu taller necesita</h2>
+      <p>Repuestos para las principales marcas y modelos. Consulta disponibilidad de tu modelo por WhatsApp.</p>
+    </div>
+    <div class="cats">
+      <a class="cat reveal" href="#tienda" data-filter="pantalla">
+        <div class="art"><svg viewBox="0 0 48 48"><rect x="12" y="4" width="24" height="40" rx="4"/><rect x="15" y="9" width="18" height="28" rx="1"/><circle cx="24" cy="40.5" r="1"/></svg></div>
+        <h3>Pantallas</h3><p>Displays completos y táctiles, incluida la línea Samsung Galaxy S Ultra.</p><span>Ver productos →</span></a>
+      <a class="cat reveal" href="#tienda" data-filter="tapa">
+        <div class="art"><svg viewBox="0 0 48 48"><rect x="12" y="4" width="24" height="40" rx="4"/><rect x="16" y="8" width="8" height="12" rx="3"/><circle cx="20" cy="11.5" r="2"/><circle cx="20" cy="16.5" r="2"/></svg></div>
+        <h3>Tapas</h3><p>Tapas traseras con acabado original para devolverle el look al equipo.</p><span>Ver productos →</span></a>
+      <a class="cat reveal" href="#tienda" data-filter="bateria">
+        <div class="art"><svg viewBox="0 0 48 48"><rect x="10" y="8" width="28" height="34" rx="3"/><path d="M19 8V5h10v3"/><path d="M26 16l-6 10h8l-6 10"/></svg></div>
+        <h3>Baterías</h3><p>Baterías de alta calidad para recuperar la autonomía del celular.</p><span>Ver productos →</span></a>
+      <a class="cat reveal" href="#tienda" data-filter="flex">
+        <div class="art"><svg viewBox="0 0 48 48"><rect x="6" y="18" width="10" height="12" rx="2"/><rect x="32" y="18" width="10" height="12" rx="2"/><path d="M16 22c6 0 6-8 12-8s4 8 4 8M16 26c6 0 6 8 12 8s4-8 4-8"/></svg></div>
+        <h3>Flex</h3><p>Flex de carga, botones, volumen y conectores de pantalla.</p><span>Ver productos →</span></a>
+      <a class="cat reveal" href="#tienda" data-filter="zocalo">
+        <div class="art"><svg viewBox="0 0 48 48"><rect x="10" y="16" width="28" height="16" rx="8"/><rect x="17" y="21" width="14" height="6" rx="3"/><path d="M24 32v10M24 6v10"/></svg></div>
+        <h3>Zócalos</h3><p>Puertos de carga para solucionar fallas de carga y conexión.</p><span>Ver productos →</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="tienda" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Tienda online</span>
+      <h2>Encuentra el repuesto para tu modelo</h2>
+      <p>Agrega productos al pedido y envíalo por WhatsApp. Te confirmamos stock, precio y entrega.</p>
+    </div>
+    <div class="shop-bar">
+      <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="q" type="search" placeholder="Busca por modelo: S23 Ultra, iPhone 12, Redmi…" aria-label="Buscar repuesto"></div>
+      <select id="brand" aria-label="Filtrar por marca"><option value="">Todas las marcas</option></select>
+      <select id="sort" aria-label="Ordenar"><option value="stock">En stock primero</option><option value="az">Modelo A–Z</option></select>
+    </div>
+    <div class="tabs" id="tabs"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="featured" id="stock">
+  <div class="wrap feat">
+    <div class="reveal">
+      <span class="badge">Stock actualizado</span>
+      <h2>Pantallas Samsung Galaxy Serie S Ultra</h2>
+      <p>Tenemos disponibles pantallas para los modelos de gama alta de Samsung. Pregunta por precio por mayor y por unidad.</p>
+      <a class="btn btn-accent" href="https://wa.me/51957864902?text=Hola%2C%20quiero%20precio%20de%20pantallas%20Samsung%20S%20Ultra" target="_blank" rel="noopener">Pedir precios →</a>
+    </div>
+    <div class="models reveal">
+      <a class="model" href="https://wa.me/51957864902?text=Hola%2C%20quiero%20precio%20de%20pantalla%20Samsung%20Galaxy%20S24%20Ultra" target="_blank" rel="noopener"><div><b>Galaxy S24 Ultra</b><small>Pantalla · Samsung</small></div><span class="go">Consultar →</span></a>
+      <a class="model" href="https://wa.me/51957864902?text=Hola%2C%20quiero%20precio%20de%20pantalla%20Samsung%20Galaxy%20S23%20Ultra" target="_blank" rel="noopener"><div><b>Galaxy S23 Ultra</b><small>Pantalla · Samsung</small></div><span class="go">Consultar →</span></a>
+      <a class="model" href="https://wa.me/51957864902?text=Hola%2C%20quiero%20precio%20de%20pantalla%20Samsung%20Galaxy%20S22%20Ultra" target="_blank" rel="noopener"><div><b>Galaxy S22 Ultra</b><small>Pantalla · Samsung</small></div><span class="go">Consultar →</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="mayoristas">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Para quién trabajamos</span>
+      <h2>Precios para cada tipo de cliente</h2>
+      <p>Ya sea que repares equipos, distribuyas repuestos o necesites arreglar tu propio celular, tenemos un precio para ti.</p>
+    </div>
+    <div class="aud">
+      <div class="acard reveal">
+        <span class="tag">Técnicos</span>
+        <h3>Servicio técnico</h3>
+        <p>Abastece tu taller con repuestos confiables y reduce devoluciones.</p>
+        <ul class="checks"><li>Precio especial para técnicos</li><li>Stock de modelos más pedidos</li><li>Atención rápida por WhatsApp</li></ul>
+      </div>
+      <div class="acard hl reveal">
+        <span class="tag">Distribuidores</span>
+        <h3>Venta por mayor</h3>
+        <p>Compra directo al importador y mejora tu margen.</p>
+        <ul class="checks"><li>Precios por volumen</li><li>Pantallas, tapas, baterías, flex y zócalos</li><li>Pedidos con delivery</li></ul>
+      </div>
+      <div class="acard reveal">
+        <span class="tag">Clientes finales</span>
+        <h3>Venta por menor</h3>
+        <p>¿Necesitas un repuesto para tu equipo? También vendemos por unidad.</p>
+        <ul class="checks"><li>Compra desde una unidad</li><li>Te ayudamos a encontrar tu modelo</li><li>Recojo en tienda o delivery</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Cómo comprar</span>
+      <h2>Tu repuesto en 4 pasos</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h3>Escríbenos</h3><p>Envíanos por WhatsApp la marca y el modelo exacto de tu celular.</p></div>
+      <div class="step reveal"><h3>Cotiza</h3><p>Te confirmamos disponibilidad y precio por mayor o por menor.</p></div>
+      <div class="step reveal"><h3>Confirma</h3><p>Coordinamos el pago y la forma de entrega.</p></div>
+      <div class="step reveal"><h3>Recibe</h3><p>Recoge en tienda en Av. Argentina o recíbelo por delivery.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="preguntas" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Resolvemos tus dudas</h2>
+    </div>
+    <div class="faq">
+      <details class="reveal"><summary>¿Venden por unidad o solo por mayor?</summary><p>Vendemos por mayor y por menor. Trabajamos con técnicos, distribuidores y clientes finales.</p></details>
+      <details class="reveal"><summary>¿Qué repuestos tienen?</summary><p>Pantallas, tapas, baterías, flex y zócalos de carga. Escríbenos con el modelo de tu celular para confirmar stock.</p></details>
+      <details class="reveal"><summary>¿Dónde queda la tienda?</summary><p>Estamos en Av. Argentina N° 428, Tiendas D3-D4, Lima.</p></details>
+      <details class="reveal"><summary>¿Hacen delivery?</summary><p>Sí, contamos con delivery. Consúltanos por WhatsApp el costo y el tiempo de entrega según tu zona.</p></details>
+      <details class="reveal"><summary>¿Cómo sé si el repuesto es compatible con mi celular?</summary><p>Envíanos la marca y el modelo exacto (lo encuentras en Ajustes › Acerca del teléfono) y te confirmamos la compatibilidad antes de comprar.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact">
+      <div class="ccard reveal">
+        <h3>Visítanos</h3>
+        <div class="crow"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><small>Dirección</small><b>Av. Argentina N° 428, Tda. D3-D4</b><br>Lima, Perú</div></div>
+        <div class="crow"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div><div><small>Teléfono / WhatsApp</small><a href="tel:+51957864902"><b>+51 957 864 902</b></a></div></div>
+        <div class="crow"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div><div><small>Facebook</small><a href="https://www.facebook.com/p/Importaciones-Loayza-61578124557136/" target="_blank" rel="noopener"><b>Importaciones Loayza</b></a></div></div>
+        <div class="map"><iframe loading="lazy" title="Mapa de la tienda" src="https://www.google.com/maps?q=Av.+Argentina+428,+Lima,+Peru&output=embed"></iframe></div>
+      </div>
+      <div class="ccard cta-card reveal">
+        <span class="eyebrow">¿Buscas un repuesto?</span>
+        <h3>Escríbenos y te cotizamos al instante</h3>
+        <p>Envíanos el modelo de tu celular y el repuesto que necesitas. Te respondemos con precio y disponibilidad.</p>
+        <div class="phone-big">957 864 902</div>
+        <div class="btns">
+          <a class="btn btn-wa" href="https://wa.me/51957864902?text=Hola%20Importaciones%20Loayza%2C%20quisiera%20cotizar%20un%20repuesto" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          <a class="btn btn-ghost" href="tel:+51957864902">Llamar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="scrim" onclick="closeCart()"></div>
+<aside class="drawer" aria-label="Carrito de pedido">
+  <div class="dh"><h3>Tu pedido</h3><button class="x" onclick="closeCart()" aria-label="Cerrar">×</button></div>
+  <div class="db">
+    <div id="lines"></div>
+    <form class="ck" id="ck" onsubmit="sendOrder(event)">
+      <label>Nombre<input id="f-name" required autocomplete="name"></label>
+      <div class="two">
+        <label>Tipo de cliente<select id="f-type"><option>Cliente final</option><option>Técnico</option><option>Distribuidor</option></select></label>
+        <label>Entrega<select id="f-del"><option>Recojo en tienda</option><option>Delivery</option></select></label>
+      </div>
+      <label>Distrito / ciudad<input id="f-dist" autocomplete="address-level2"></label>
+      <label>Comentarios<textarea id="f-note" rows="2" placeholder="Calidad, color, cantidad por mayor…"></textarea></label>
+    </form>
+  </div>
+  <div class="df">
+    <div class="tot"><span id="t-items">0 productos</span><span id="t-sum"></span></div>
+    <button class="btn btn-wa" type="submit" form="ck" id="send">Enviar pedido por WhatsApp</button>
+    <p>Sin pago en línea: te confirmamos precio, stock y forma de pago por WhatsApp.</p>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#inicio" class="logo"><span class="logo-mark"><img src="img/logo.jpg" alt=""></span><span>Importaciones Loayza</span></a>
+    <span>© <span id="y"></span> Importaciones Loayza · Av. Argentina 428, Tda. D3-D4, Lima</span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/51957864902?text=Hola%20Importaciones%20Loayza" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.2.6 4.4 1.7 6.3L3.2 29l7.2-1.9c1.8 1 3.9 1.5 5.9 1.5h.1c7 0 12.7-5.7 12.7-12.7C29 8.7 23.3 3 16 3zm0 23.2c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.3 1.1 1.1-4.2-.3-.4a10.5 10.5 0 1 1 9.3 5.2zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.1 2.8 1.1 3.4.9 4 .8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<script src="productos.js"></script>
+<script>
+  const TIPOS = {pantalla:"Pantallas",tapa:"Tapas",bateria:"Baterías",flex:"Flex",zocalo:"Zócalos"};
+  const UNO = {pantalla:"Pantalla",tapa:"Tapa",bateria:"Batería",flex:"Flex",zocalo:"Zócalo"};
+  const ICONS = {
+    pantalla:'<rect x="12" y="4" width="24" height="40" rx="4"/><rect x="15" y="9" width="18" height="28" rx="1"/>',
+    tapa:'<rect x="12" y="4" width="24" height="40" rx="4"/><rect x="16" y="8" width="8" height="12" rx="3"/><circle cx="20" cy="11.5" r="2"/><circle cx="20" cy="16.5" r="2"/>',
+    bateria:'<rect x="10" y="8" width="28" height="34" rx="3"/><path d="M19 8V5h10v3"/><path d="M26 16l-6 10h8l-6 10"/>',
+    flex:'<rect x="6" y="18" width="10" height="12" rx="2"/><rect x="32" y="18" width="10" height="12" rx="2"/><path d="M16 22c6 0 6-8 12-8s4 8 4 8M16 26c6 0 6 8 12 8s4-8 4-8"/>',
+    zocalo:'<rect x="10" y="16" width="28" height="16" rx="8"/><rect x="17" y="21" width="14" height="6" rx="3"/><path d="M24 32v10M24 6v10"/>'
+  };
+  const P = window.PRODUCTOS || [], WA = window.WHATSAPP || "51957864902";
+  const $ = id => document.getElementById(id);
+  const esc = t => String(t ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const soles = n => 'S/ ' + Number(n).toFixed(2);
+  let tipo = '', cart = {};
+  try { cart = JSON.parse(localStorage.getItem('loayza-cart')) || {}; } catch (e) {}
+  const save = () => { try { localStorage.setItem('loayza-cart', JSON.stringify(cart)); } catch (e) {} };
+  const cartItems = () => Object.entries(cart).map(([id, n]) => ({p: P.find(x => x.id === id), n})).filter(x => x.p);
+
+  [...new Set(P.map(p => p.marca))].sort().forEach(m => $('brand').insertAdjacentHTML('beforeend', `<option>${esc(m)}</option>`));
+  $('tabs').innerHTML = [['', 'Todo'], ...Object.entries(TIPOS)].map(([k, v]) => `<button data-t="${k}" class="${k === tipo ? 'on' : ''}">${v}</button>`).join('');
+  $('tabs').onclick = e => { const b = e.target.closest('button'); if (b) setTipo(b.dataset.t); };
+  function setTipo(t){ tipo = t; $('tabs').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.t === t)); render(); }
+  document.querySelectorAll('[data-filter]').forEach(a => a.addEventListener('click', () => setTipo(a.dataset.filter)));
+  ['q', 'brand', 'sort'].forEach(id => $(id).addEventListener('input', render));
+
+  function render(){
+    const q = $('q').value.trim().toLowerCase(), br = $('brand').value;
+    const list = P.filter(p => (!tipo || p.tipo === tipo) && (!br || p.marca === br) &&
+      (!q || `${p.marca} ${p.modelo} ${p.detalle} ${TIPOS[p.tipo]}`.toLowerCase().includes(q)));
+    list.sort($('sort').value === 'az' ? (a, b) => a.modelo.localeCompare(b.modelo) : (a, b) => b.stock - a.stock);
+    $('grid').innerHTML = list.length ? list.map(p => `
+      <article class="prod">
+        <div class="ph">${p.foto ? `<img src="${esc(p.foto)}" alt="${esc(UNO[p.tipo] + ' ' + p.modelo)}" loading="lazy">` : `<svg viewBox="0 0 48 48">${ICONS[p.tipo] || ''}</svg>`}
+          <span class="st ${p.stock ? 'ok' : ''}">${p.stock ? '● En stock' : 'Consultar stock'}</span></div>
+        <div class="bd">
+          <span class="br">${esc(p.marca)}</span>
+          <h3>${esc(p.modelo)}</h3>
+          <span class="dt">${esc(p.detalle || UNO[p.tipo])}</span>
+          ${p.precio != null ? `<div class="pr">${soles(p.precio)}${p.mayor != null ? `<small>Por mayor: ${soles(p.mayor)}</small>` : ''}</div>` : `<div class="pr q">Precio a consultar</div>`}
+          <button class="btn add ${cart[p.id] ? 'done' : ''}" data-id="${esc(p.id)}">${cart[p.id] ? `✓ En pedido (${cart[p.id]})` : 'Agregar al pedido'}</button>
+        </div>
+      </article>`).join('')
+      : `<div class="empty">No encontramos ese repuesto en el catálogo, pero puede que lo tengamos.<br><a href="https://wa.me/${WA}?text=${encodeURIComponent('Hola, busco un repuesto para: ' + $('q').value)}" target="_blank" rel="noopener">Pregúntanos por WhatsApp →</a></div>`;
+  }
+  $('grid').onclick = e => { const b = e.target.closest('.add'); if (!b) return; cart[b.dataset.id] = (cart[b.dataset.id] || 0) + 1; save(); render(); renderCart(); toast('Agregado al pedido'); };
+
+  function renderCart(){
+    const items = cartItems(), units = items.reduce((s, x) => s + x.n, 0);
+    $('count').textContent = units || '';
+    $('t-items').textContent = units + (units === 1 ? ' producto' : ' productos');
+    const priced = items.every(x => x.p.precio != null);
+    $('t-sum').textContent = !items.length ? '' : priced ? soles(items.reduce((s, x) => s + x.p.precio * x.n, 0)) : 'Total a cotizar';
+    $('lines').innerHTML = items.length ? items.map(({p, n}) => `
+      <div class="line"><div class="li"><b>${esc(UNO[p.tipo])} ${esc(p.modelo)}</b><small>${esc(p.marca)} · ${p.precio != null ? soles(p.precio) : 'precio a consultar'}</small><br><button class="rm" data-rm="${esc(p.id)}">Quitar</button></div>
+      <div class="qty"><button data-d="${esc(p.id)}" aria-label="Menos">−</button><span>${n}</span><button data-i="${esc(p.id)}" aria-label="Más">+</button></div></div>`).join('')
+      : '<p style="color:var(--muted);text-align:center;padding:30px 0">Tu pedido está vacío. Agrega repuestos desde la tienda.</p>';
+    $('send').disabled = !items.length; $('send').style.opacity = items.length ? 1 : .5;
+  }
+  $('lines').onclick = e => {
+    const t = e.target, id = t.dataset.i || t.dataset.d || t.dataset.rm; if (!id) return;
+    if (t.dataset.i) cart[id]++; else if (t.dataset.d) cart[id]--; else delete cart[id];
+    if (cart[id] <= 0) delete cart[id]; save(); renderCart(); render();
+  };
+
+  function sendOrder(e){
+    e.preventDefault();
+    const items = cartItems(); if (!items.length) return;
+    const L = ['*Nuevo pedido - Importaciones Loayza*', '',
+      ...items.map(({p, n}) => `- ${n} x ${UNO[p.tipo]} ${p.marca} ${p.modelo}${p.precio != null ? ' (' + soles(p.precio) + ')' : ''}`), '',
+      `Nombre: ${$('f-name').value}`, `Cliente: ${$('f-type').value}`, `Entrega: ${$('f-del').value}`];
+    if ($('f-dist').value) L.push(`Distrito/ciudad: ${$('f-dist').value}`);
+    if ($('f-note').value) L.push(`Comentarios: ${$('f-note').value}`);
+    L.push('', 'Por favor confirmar stock y precio. Gracias.');
+    window.open(`https://wa.me/${WA}?text=${encodeURIComponent(L.join('\n'))}`, '_blank', 'noopener');
+  }
+  function openCart(){ document.body.classList.add('cart-open'); }
+  function closeCart(){ document.body.classList.remove('cart-open'); }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
+  let tt; function toast(m){ $('toast').textContent = m; $('toast').classList.add('show'); clearTimeout(tt); tt = setTimeout(() => $('toast').classList.remove('show'), 1600); }
+  render(); renderCart();
+</script>
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => document.getElementById('menu').classList.remove('open')));
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold: .12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
